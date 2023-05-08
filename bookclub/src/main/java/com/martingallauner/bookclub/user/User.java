@@ -1,16 +1,13 @@
 package com.martingallauner.bookclub.user;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Table(name = "users")
 @Entity
-@Getter
-@Setter
+@Data
 public class User {
 
     @Id
