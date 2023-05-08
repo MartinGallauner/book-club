@@ -1,5 +1,6 @@
-package com.martingallauner.bookclub;
+package com.martingallauner.bookclub.book;
 
+import com.martingallauner.bookclub.book.client.OpenLibraryClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

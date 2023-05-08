@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub;
+package com.martingallauner.bookclub.book;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

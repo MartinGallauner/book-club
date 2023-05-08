@@ -1,7 +1,8 @@
-package com.martingallauner.bookclub;
+package com.martingallauner.bookclub.book.client;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.martingallauner.bookclub.book.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;

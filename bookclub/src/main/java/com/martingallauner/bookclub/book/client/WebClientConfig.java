@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub;
+package com.martingallauner.bookclub.book.client;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
