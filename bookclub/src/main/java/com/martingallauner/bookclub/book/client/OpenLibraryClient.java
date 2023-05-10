@@ -16,8 +16,8 @@ public class OpenLibraryClient {
 
     private final WebClient openLibraryWebClient;
 
-    public Book fetchMetadataForBook(String isbn) {
 
+    public Book fetchMetadataForBook(String isbn) {
         ObjectNode result = openLibraryWebClient.get().uri("/api/books",
                         uriBuilder -> uriBuilder.queryParam("jscmd", "data")
                                 .queryParam("format", "json")
@@ -36,12 +36,31 @@ public class OpenLibraryClient {
     private Book convertToBook(String isbn, JsonNode content) {
         Book book = new Book();
         book.setIsbn(isbn);
-        book.setTitle(content.get("title").asText());
-        book.setAuthor(content.get("authors").get(0).get("name").asText());
-        book.setPublisher(content.get("publishers").get(0).get("name").asText("n.A."));
-        book.setPages(content.get("number_of_pages").asLong(0));
-        book.setDescription(content.get("notes") == null ? "n.A" : content.get("notes").asText("n.A."));
-        book.setGenre(content.get("subjects") == null ? "n.A" : content.get("subjects").get(0).get("name").asText("n.A."));
+
+        if (content.hasNonNull("title")) {
+            book.setTitle(content.get("title").asText());
+        }
+
+        if (content.hasNonNull("authors") && content.get("authors").get(0).hasNonNull("name")) {
+            book.setAuthor(content.get("authors").get(0).get("name").asText());
+        }
+
+        if (content.hasNonNull("publishers") && content.get("publishers").get(0).hasNonNull("name")) {
+            book.setPublisher(content.get("publishers").get(0).get("name").asText("n.A."));
+        }
+
+        if (content.hasNonNull("number_of_pages")) {
+            book.setPages(content.get("number_of_pages").asLong(0));
+        }
+
+        book.setDescription(content.hasNonNull("notes") ? content.get("notes").asText("n.A.") : "n.A");
+
+        if (content.hasNonNull("subjects") && content.get("subjects").get(0).hasNonNull("name")) {
+            book.setGenre(content.get("subjects").get(0).get("name").asText("n.A."));
+        } else {
+            book.setGenre("n.A.");
+        }
+
         return book;
     }
 

@@ -12,20 +12,16 @@ public class UserController {
 
 
     @GetMapping("/{id}")
-    public UserDto getUserById(@PathVariable Long id) {
+    public UserResponse getUserById(@PathVariable Long id) {
         User user = userService.getUserById(id);
-        return new UserDto(user.getId(),
+        return new UserResponse(user.getId(),
                 user.getName(),
-                user.getPassword(),
                 user.getCreatedAt().toString());
     }
 
     @PostMapping
-    public UserDto createUser(@RequestBody CreateUserRequest createUserRequest) {
+    public UserResponse createUser(@RequestBody CreateUserRequest createUserRequest) {
         User user = userService.createUser(createUserRequest);
-        return new UserDto(user.getId(),
-                user.getName(),
-                user.getPassword(),
-                user.getCreatedAt().toString());
+        return new UserResponse(user.getId(), user.getName(), user.getCreatedAt().toString());
     }
 }

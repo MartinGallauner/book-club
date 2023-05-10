@@ -1,5 +1,6 @@
 package com.martingallauner.bookclub.user;
 
+import com.martingallauner.bookclub.book.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,11 @@ public class UserService {
         user.setPassword(request.password());
         user.setCreatedAt(LocalDateTime.now(clock));
         return userRepository.save(user);
+    }
+
+    public void addBook(Long userId, Book book) {
+        User user = userRepository.getReferenceById(userId);
+        user.getBooks().add(book);
+        userRepository.save(user);
     }
 }

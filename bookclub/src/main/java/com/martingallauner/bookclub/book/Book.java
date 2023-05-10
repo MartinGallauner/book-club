@@ -1,12 +1,13 @@
 package com.martingallauner.bookclub.book;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.martingallauner.bookclub.user.User;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Table(name = "books")
 @Entity
@@ -14,14 +15,10 @@ import lombok.Setter;
 @Setter
 public class Book {
 
-    @JsonIgnore
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private Long id;
+    private String isbn;
 
     private String title;
-
-    private String isbn;
 
     private String author;
 
@@ -32,5 +29,9 @@ public class Book {
     private String publisher;
 
     private Long pages;
+
+    @JsonBackReference
+    @ManyToMany(mappedBy = "books")
+    private Set<User> users;
 
 }

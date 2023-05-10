@@ -14,9 +14,11 @@ public class BookController {
 
     private final OpenLibraryClient openLibraryClient;
 
+    private final BookService bookService;
+
     @GetMapping("/{isbn}")
     public Book fetchBook(@PathVariable String isbn) {
-        return openLibraryClient.fetchMetadataForBook(isbn);
+        return bookService.getBookByIsbn(isbn);
 
     }
 }
