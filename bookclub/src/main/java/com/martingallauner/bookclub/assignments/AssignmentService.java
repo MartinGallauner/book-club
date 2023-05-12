@@ -27,7 +27,7 @@ public class AssignmentService {
         User user = userService.getUserById(userId);
 
         return AssignedBooksResponse.builder()
-                .user(new UserResponse(user.getId(), user.getName(), user.getCreatedAt().toString()))
+                .user(user.toResponse())
                 .books(user.getBooks())
                 .build();
     }

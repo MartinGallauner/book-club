@@ -9,4 +9,4 @@ Connect your book self at home with your friends!
 `docker run --name my-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgres -p 5432:5432 -d postgres
 `
 
-```bash
+```

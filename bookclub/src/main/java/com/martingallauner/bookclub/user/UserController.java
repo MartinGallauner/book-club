@@ -14,14 +14,17 @@ public class UserController {
     @GetMapping("/{id}")
     public UserResponse getUserById(@PathVariable Long id) {
         User user = userService.getUserById(id);
-        return new UserResponse(user.getId(),
-                user.getName(),
-                user.getCreatedAt().toString());
+        return user.toResponse();
     }
 
     @PostMapping
     public UserResponse createUser(@RequestBody CreateUserRequest createUserRequest) {
         User user = userService.createUser(createUserRequest);
-        return new UserResponse(user.getId(), user.getName(), user.getCreatedAt().toString());
+        return new UserResponse(user.getId(), user.getName(), user.getCreatedAt().toString(), null);
+    }
+
+    @PostMapping("/connect")
+    public void createUser(@RequestBody ConnectUserRequest connectUserRequest) {
+        userService.addConnection(connectUserRequest);
     }
 }

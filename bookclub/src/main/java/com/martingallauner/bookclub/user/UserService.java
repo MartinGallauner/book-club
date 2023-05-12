@@ -32,4 +32,16 @@ public class UserService {
         user.getBooks().add(book);
         userRepository.save(user);
     }
+
+    public void addConnection(ConnectUserRequest request) {
+        User user1 = userRepository.findById(request.user1Id())
+                .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user1Id()));
+        User user2 = userRepository.findById(request.user2Id())
+                .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user2Id()));
+
+        user1.addConnection(user2);
+
+        userRepository.save(user1);
+        userRepository.save(user2);
+    }
 }
