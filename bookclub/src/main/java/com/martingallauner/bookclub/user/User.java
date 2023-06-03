@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 @Table(name = "users")
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
