@@ -1,0 +1,45 @@
+### Get book by isbn
+
+# curl --location --request GET 'localhost:8080/api/books/1736049119'
+GET localhost:8080/api/books/1736049119
+
+###
+
+
+### Get all books assigned to the specified user
+
+# curl --location --request GET 'localhost:8080/api/assignments/user/1'
+#--header 'Content-Type: application/json'
+#--data-raw '{
+#    "userId": 1,
+#    "isbn": "1936891034"
+#}'
+GET localhost:8080/api/assignments/user/1
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "isbn": "1936891034"
+}
+
+###
+
+
+### Assign a book to a user
+
+# curl --location --request POST 'localhost:8080/api/assignments/assign'
+#--header 'Content-Type: application/json'
+#--data-raw '{
+#    "userId": 1,
+#    "isbn": "1936891034"
+#}'
+POST localhost:8080/api/assignments/assign
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "isbn": "1936891034"
+}
+
+###
+

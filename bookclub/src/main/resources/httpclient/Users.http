@@ -1,0 +1,48 @@
+
+###
+
+# curl --location --request GET 'localhost:8080/api/users/1'
+#--data-raw ''
+GET localhost:8080/api/users/1
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+
+
+###
+
+# curl --location --request POST 'localhost:8080/api/users'
+#--header 'Content-Type: application/json'
+#--data-raw '{
+#    "name": "tester",
+#    "password": "password"
+#}'
+POST localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "tester",
+  "password": "password"
+}
+
+###
+
+# curl --location --request POST 'localhost:8080/api/users/connect'
+#--header 'Content-Type: application/json'
+#--data-raw '{
+#    "user1Id": 1,
+#    "user2Id": 2
+#}'
+POST localhost:8080/api/users/connect
+Content-Type: application/json
+
+{
+  "user1Id": 1,
+  "user2Id": 2
+}
+
+###
+
+
+
