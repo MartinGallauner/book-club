@@ -1,5 +1,5 @@
 # book-club
-Connect your book self at home with your friends!
+Connect your physical bookshelf with your friends!
 
 
 
