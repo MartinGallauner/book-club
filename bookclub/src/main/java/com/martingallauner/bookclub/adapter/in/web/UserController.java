@@ -1,5 +1,6 @@
-package com.martingallauner.bookclub.user;
+package com.martingallauner.bookclub.adapter.in.web;
 
+import com.martingallauner.bookclub.application.domain.user.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

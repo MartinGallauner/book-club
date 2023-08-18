@@ -1,6 +1,7 @@
-package com.martingallauner.bookclub.user;
+package com.martingallauner.bookclub.application.domain.user;
 
-import com.martingallauner.bookclub.book.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.UserRepository;
+import com.martingallauner.bookclub.application.domain.book.Book;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

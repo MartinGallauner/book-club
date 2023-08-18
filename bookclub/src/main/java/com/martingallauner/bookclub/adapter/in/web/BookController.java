@@ -1,6 +1,8 @@
-package com.martingallauner.bookclub.book;
+package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.book.client.OpenLibraryClient;
+import com.martingallauner.bookclub.application.domain.book.Book;
+import com.martingallauner.bookclub.application.domain.book.BookService;
+import com.martingallauner.bookclub.application.domain.book.client.OpenLibraryClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

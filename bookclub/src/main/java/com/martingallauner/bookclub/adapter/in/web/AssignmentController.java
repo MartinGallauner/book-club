@@ -1,10 +1,10 @@
-package com.martingallauner.bookclub.assignments;
+package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.book.Book;
+import com.martingallauner.bookclub.application.domain.assignments.AssignedBooksResponse;
+import com.martingallauner.bookclub.application.domain.assignments.AssignmentRequest;
+import com.martingallauner.bookclub.application.domain.assignments.AssignmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api/assignments")

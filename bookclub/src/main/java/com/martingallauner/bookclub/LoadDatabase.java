@@ -1,17 +1,15 @@
 package com.martingallauner.bookclub;
 
-import com.martingallauner.bookclub.book.Book;
-import com.martingallauner.bookclub.book.BookRepository;
-import com.martingallauner.bookclub.user.User;
-import com.martingallauner.bookclub.user.UserRepository;
+import com.martingallauner.bookclub.application.domain.book.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.BookRepository;
+import com.martingallauner.bookclub.application.domain.user.User;
+import com.martingallauner.bookclub.adapter.out.persistence.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
-
-import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
 
 @Component
 public class LoadDatabase {

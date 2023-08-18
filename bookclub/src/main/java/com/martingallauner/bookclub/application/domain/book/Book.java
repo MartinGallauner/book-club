@@ -1,8 +1,7 @@
-package com.martingallauner.bookclub.book;
+package com.martingallauner.bookclub.application.domain.book;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.martingallauner.bookclub.user.User;
+import com.martingallauner.bookclub.application.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

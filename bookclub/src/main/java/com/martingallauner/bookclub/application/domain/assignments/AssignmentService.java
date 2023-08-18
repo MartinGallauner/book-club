@@ -1,14 +1,11 @@
-package com.martingallauner.bookclub.assignments;
+package com.martingallauner.bookclub.application.domain.assignments;
 
-import com.martingallauner.bookclub.book.Book;
-import com.martingallauner.bookclub.book.BookService;
-import com.martingallauner.bookclub.user.User;
-import com.martingallauner.bookclub.user.UserResponse;
-import com.martingallauner.bookclub.user.UserService;
+import com.martingallauner.bookclub.application.domain.book.Book;
+import com.martingallauner.bookclub.application.domain.book.BookService;
+import com.martingallauner.bookclub.application.domain.user.User;
+import com.martingallauner.bookclub.application.domain.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.Set;
 
 @RequiredArgsConstructor
 @Service

@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.assignments;
+package com.martingallauner.bookclub.application.domain.assignments;
 
 import lombok.Data;
 
