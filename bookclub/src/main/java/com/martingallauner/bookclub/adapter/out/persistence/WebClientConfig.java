@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.application.domain.book.client;
+package com.martingallauner.bookclub.adapter.out.persistence;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;

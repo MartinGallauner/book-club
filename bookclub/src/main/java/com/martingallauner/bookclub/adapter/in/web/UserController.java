@@ -1,8 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.application.domain.user.ConnectUserRequest;
-import com.martingallauner.bookclub.application.domain.user.User;
-import com.martingallauner.bookclub.application.domain.user.UserResponse;
+import com.martingallauner.bookclub.adapter.out.persistence.User;
 import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
 import com.martingallauner.bookclub.application.port.in.CreateUserRequest;
 import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;

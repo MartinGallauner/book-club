@@ -1,7 +1,5 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.application.domain.assignments.AssignedBooksResponse;
-import com.martingallauner.bookclub.application.domain.assignments.AssignmentRequest;
 import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

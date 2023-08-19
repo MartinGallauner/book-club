@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.application.domain.user;
+package com.martingallauner.bookclub.adapter.in.web;
 
 import java.util.Set;
 

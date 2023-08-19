@@ -1,7 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.application.domain.user.User;
-import com.martingallauner.bookclub.application.domain.user.UserResponse;
+import com.martingallauner.bookclub.adapter.out.persistence.User;
 import com.martingallauner.bookclub.application.port.in.SearchBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

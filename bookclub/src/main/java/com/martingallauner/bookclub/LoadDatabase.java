@@ -1,8 +1,8 @@
 package com.martingallauner.bookclub;
 
-import com.martingallauner.bookclub.application.domain.book.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.Book;
 import com.martingallauner.bookclub.adapter.out.persistence.BookRepository;
-import com.martingallauner.bookclub.application.domain.user.User;
+import com.martingallauner.bookclub.adapter.out.persistence.User;
 import com.martingallauner.bookclub.adapter.out.persistence.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

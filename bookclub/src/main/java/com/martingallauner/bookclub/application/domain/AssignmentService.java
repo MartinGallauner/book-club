@@ -1,9 +1,8 @@
-package com.martingallauner.bookclub.application.domain.assignments;
+package com.martingallauner.bookclub.application.domain;
 
-import com.martingallauner.bookclub.application.domain.book.Book;
-import com.martingallauner.bookclub.application.domain.book.BookService;
-import com.martingallauner.bookclub.application.domain.user.User;
-import com.martingallauner.bookclub.application.domain.user.UserService;
+import com.martingallauner.bookclub.adapter.in.web.AssignedBooksResponse;
+import com.martingallauner.bookclub.adapter.out.persistence.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.User;
 import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

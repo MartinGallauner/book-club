@@ -1,6 +1,6 @@
 package com.martingallauner.bookclub.application.port.in;
 
-import com.martingallauner.bookclub.application.domain.assignments.AssignedBooksResponse;
+import com.martingallauner.bookclub.adapter.in.web.AssignedBooksResponse;
 
 public interface AssignBookUseCase {
 

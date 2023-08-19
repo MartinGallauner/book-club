@@ -1,13 +1,12 @@
-package com.martingallauner.bookclub.application.domain.search;
+package com.martingallauner.bookclub.application;
 
-import com.martingallauner.bookclub.application.domain.book.Book;
-import com.martingallauner.bookclub.application.domain.book.BookService;
-import com.martingallauner.bookclub.application.domain.user.User;
+import com.martingallauner.bookclub.adapter.out.persistence.Book;
+import com.martingallauner.bookclub.application.domain.BookService;
+import com.martingallauner.bookclub.adapter.out.persistence.User;
 import com.martingallauner.bookclub.application.port.in.SearchBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Set;
 
 @Service
