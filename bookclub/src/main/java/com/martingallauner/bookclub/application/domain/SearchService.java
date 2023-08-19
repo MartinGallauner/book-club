@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.application;
+package com.martingallauner.bookclub.application.domain;
 
 import com.martingallauner.bookclub.adapter.out.persistence.Book;
 import com.martingallauner.bookclub.application.domain.BookService;

@@ -2,7 +2,7 @@ package com.martingallauner.bookclub.application.domain
 
 import com.martingallauner.bookclub.adapter.out.persistence.Book
 import com.martingallauner.bookclub.adapter.out.persistence.BookRepository
-import com.martingallauner.bookclub.adapter.out.persistence.OpenLibraryClient
+import com.martingallauner.bookclub.adapter.out.persistence.client.OpenLibraryClient
 import org.springframework.stereotype.Service
 
 @Service

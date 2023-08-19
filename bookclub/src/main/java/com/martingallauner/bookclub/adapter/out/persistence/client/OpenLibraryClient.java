@@ -1,8 +1,9 @@
-package com.martingallauner.bookclub.adapter.out.persistence;
+package com.martingallauner.bookclub.adapter.out.persistence.client;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.martingallauner.bookclub.adapter.out.persistence.Book;
+import com.martingallauner.bookclub.application.port.out.FetchOpenLibraryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -12,11 +13,11 @@ import java.time.Duration;
 
 @RequiredArgsConstructor
 @Component
-public class OpenLibraryClient {
+public class OpenLibraryClient implements FetchOpenLibraryPort {
 
     private final WebClient openLibraryWebClient;
 
-
+    @Override
     public Book fetchMetadataForBook(String isbn) {
         ObjectNode result = openLibraryWebClient.get().uri("/api/books",
                         uriBuilder -> uriBuilder.queryParam("jscmd", "data")
@@ -63,6 +64,4 @@ public class OpenLibraryClient {
 
         return book;
     }
-
-
 }
