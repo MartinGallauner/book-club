@@ -2,8 +2,7 @@ package com.martingallauner.bookclub.application.port.in;
 
 import com.martingallauner.bookclub.application.domain.user.User;
 
-public interface CreateUserUseCase {
+public interface GetUserUseCase {
 
-    User createUser(CreateUserRequest request);
-
+    User getUserById(Long id);
 }

@@ -1,8 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.application.domain.book.Book;
-import com.martingallauner.bookclub.application.domain.book.BookService;
-import com.martingallauner.bookclub.application.domain.book.client.OpenLibraryClient;
 import com.martingallauner.bookclub.application.port.in.FindBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/books")
 public class BookController implements FindBookUseCase {
 
-    private final BookService bookService;
+    private final FindBookUseCase findBookUseCase;
 
     @Override
     @GetMapping("/{isbn}")
-    public Book findBook(@PathVariable String isbn) {
-        return bookService.getBookByIsbn(isbn);
+    public Book getBook(@PathVariable String isbn) {
+        return findBookUseCase.getBook(isbn);
     }
 }

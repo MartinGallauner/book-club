@@ -5,5 +5,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 public interface FindBookUseCase {
 
-    Book findBook(@PathVariable String isbn);
+    Book getBook(@PathVariable String isbn);
 }

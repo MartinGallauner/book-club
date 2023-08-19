@@ -2,7 +2,7 @@ package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.application.domain.assignments.AssignedBooksResponse;
 import com.martingallauner.bookclub.application.domain.assignments.AssignmentRequest;
-import com.martingallauner.bookclub.application.domain.assignments.AssignmentService;
+import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AssignmentController {
 
-    private final AssignmentService assignmentService;
+    private final AssignBookUseCase assignBookUseCase;
 
     @PostMapping("/assign")
     public void assign(@RequestBody AssignmentRequest assignment) {
-        assignmentService.assign(assignment.getUserId(), assignment.getIsbn());
+        assignBookUseCase.assign(assignment.getUserId(), assignment.getIsbn());
     }
 
     @GetMapping("/user/{userId}")
     public AssignedBooksResponse getBooksByUserId(@PathVariable Long userId) {
-        return assignmentService.getBooksByUserId(userId);
+        return assignBookUseCase.getBooksByUserId(userId);
     }
 }

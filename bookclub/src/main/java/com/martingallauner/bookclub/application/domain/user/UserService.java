@@ -2,7 +2,10 @@ package com.martingallauner.bookclub.application.domain.user;
 
 import com.martingallauner.bookclub.adapter.out.persistence.UserRepository;
 import com.martingallauner.bookclub.application.domain.book.Book;
+import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
+import com.martingallauner.bookclub.application.port.in.CreateUserRequest;
 import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;
+import com.martingallauner.bookclub.application.port.in.GetUserUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +14,13 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Service
-public class UserService implements CreateUserUseCase {
+public class UserService implements GetUserUseCase, CreateUserUseCase, AddConnectionUseCase {
 
     private final UserRepository userRepository;
 
     private final Clock clock;
 
+    @Override
     public User getUserById(Long id) {
         return userRepository.getReferenceById(id);
     }
@@ -36,6 +40,7 @@ public class UserService implements CreateUserUseCase {
         userRepository.save(user);
     }
 
+    @Override
     public void addConnection(ConnectUserRequest request) {
         User user1 = userRepository.findById(request.user1Id())
                 .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user1Id()));
