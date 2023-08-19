@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/connect")
-    public void createUser(@RequestBody ConnectUserRequest connectUserRequest) {
+    public void connectUser(@RequestBody ConnectUserRequest connectUserRequest) {
         addConnectionUseCase.addConnection(connectUserRequest);
     }
 }
