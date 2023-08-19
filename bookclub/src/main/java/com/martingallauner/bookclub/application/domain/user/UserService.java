@@ -2,6 +2,7 @@ package com.martingallauner.bookclub.application.domain.user;
 
 import com.martingallauner.bookclub.adapter.out.persistence.UserRepository;
 import com.martingallauner.bookclub.application.domain.book.Book;
+import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserService implements CreateUserUseCase {
 
     private final UserRepository userRepository;
 
@@ -20,6 +21,7 @@ public class UserService {
         return userRepository.getReferenceById(id);
     }
 
+    @Override
     public User createUser(CreateUserRequest request) {
         User user = new User();
         user.setName(request.name());
