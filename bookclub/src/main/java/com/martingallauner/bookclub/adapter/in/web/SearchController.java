@@ -2,6 +2,7 @@ package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.port.in.SearchBookUseCase;
+import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

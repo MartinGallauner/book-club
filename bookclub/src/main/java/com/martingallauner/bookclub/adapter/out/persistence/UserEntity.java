@@ -1,7 +1,7 @@
 package com.martingallauner.bookclub.adapter.out.persistence;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.martingallauner.bookclub.adapter.in.web.UserResponse;
+import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import jakarta.persistence.*;
 import lombok.*;
 

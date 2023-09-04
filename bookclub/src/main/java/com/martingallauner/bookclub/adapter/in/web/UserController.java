@@ -1,10 +1,10 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
-import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
-import com.martingallauner.bookclub.application.port.in.CreateUserRequest;
-import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;
-import com.martingallauner.bookclub.application.port.in.GetUserUseCase;
+import com.martingallauner.bookclub.application.port.in.*;
+import com.martingallauner.bookclub.application.port.in.request.ConnectUserRequest;
+import com.martingallauner.bookclub.application.port.in.request.CreateUserRequest;
+import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

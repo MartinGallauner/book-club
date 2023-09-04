@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.application.port.in;
+package com.martingallauner.bookclub.application.port.in.request;
 
 import org.jetbrains.annotations.NotNull;
 

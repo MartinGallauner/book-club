@@ -1,7 +1,7 @@
 package com.martingallauner.bookclub.application.port.in;
 
 
-import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
+import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 
 import java.util.Set;
 
@@ -10,5 +10,5 @@ import java.util.Set;
  */
 public interface SearchBookUseCase {
 
-    Set<UserEntity> searchBooks(String isbn);
+    Set<UserResponse> searchBooks(String isbn);
 }

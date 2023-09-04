@@ -1,6 +1,7 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
+import com.martingallauner.bookclub.application.port.in.request.AssignmentRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ public class AssignmentController {
 
     @PostMapping("/assign")
     public void assign(@RequestBody AssignmentRequest assignment) {
-        assignBookUseCase.assign(assignment.getUserId(), assignment.getIsbn());
+        assignBookUseCase.assign(assignment);
     }
 
     @GetMapping("/user/{userId}")

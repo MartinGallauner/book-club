@@ -1,11 +1,11 @@
 package com.martingallauner.bookclub.application.domain;
 
-import com.martingallauner.bookclub.adapter.in.web.ConnectUserRequest;
+import com.martingallauner.bookclub.application.port.in.request.ConnectUserRequest;
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.port.out.UserRepository;
 import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
 import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
-import com.martingallauner.bookclub.application.port.in.CreateUserRequest;
+import com.martingallauner.bookclub.application.port.in.request.CreateUserRequest;
 import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;
 import com.martingallauner.bookclub.application.port.in.GetUserUseCase;
 import lombok.RequiredArgsConstructor;

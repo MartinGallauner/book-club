@@ -1,9 +1,9 @@
 package com.martingallauner.bookclub.application.port.in;
 
-import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
+import com.martingallauner.bookclub.application.port.in.response.BookResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 
 public interface FindBookUseCase {
 
-    BookEntity getBook(@PathVariable String isbn);
+    BookResponse getBook(@PathVariable String isbn);
 }
