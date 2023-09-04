@@ -1,6 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.adapter.out.persistence.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
 import com.martingallauner.bookclub.application.port.in.FindBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class BookController implements FindBookUseCase {
 
     @Override
     @GetMapping("/{isbn}")
-    public Book getBook(@PathVariable String isbn) {
+    public BookEntity getBook(@PathVariable String isbn) {
         return findBookUseCase.getBook(isbn);
     }
 }

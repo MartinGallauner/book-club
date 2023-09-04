@@ -1,9 +1,9 @@
 package com.martingallauner.bookclub.application.domain;
 
 import com.martingallauner.bookclub.adapter.in.web.ConnectUserRequest;
-import com.martingallauner.bookclub.adapter.out.persistence.User;
+import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.port.out.UserRepository;
-import com.martingallauner.bookclub.adapter.out.persistence.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
 import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
 import com.martingallauner.bookclub.application.port.in.CreateUserRequest;
 import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;
@@ -23,30 +23,30 @@ public class UserService implements GetUserUseCase, CreateUserUseCase, AddConnec
     private final Clock clock;
 
     @Override
-    public User getUserById(Long id) {
+    public UserEntity getUserById(Long id) {
         return userRepository.getReferenceById(id);
     }
 
     @Override
-    public User createUser(CreateUserRequest request) {
-        User user = new User();
+    public UserEntity createUser(CreateUserRequest request) {
+        UserEntity user = new UserEntity();
         user.setName(request.name());
         user.setPassword(request.password());
         user.setCreatedAt(LocalDateTime.now(clock));
         return userRepository.save(user);
     }
 
-    public void addBook(Long userId, Book book) {
-        User user = userRepository.getReferenceById(userId);
+    public void addBook(Long userId, BookEntity book) {
+        UserEntity user = userRepository.getReferenceById(userId);
         user.getBooks().add(book);
         userRepository.save(user);
     }
 
     @Override
     public void addConnection(ConnectUserRequest request) {
-        User user1 = userRepository.findById(request.user1Id())
+        UserEntity user1 = userRepository.findById(request.user1Id())
                 .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user1Id()));
-        User user2 = userRepository.findById(request.user2Id())
+        UserEntity user2 = userRepository.findById(request.user2Id())
                 .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user2Id()));
 
         user1.addConnection(user2);

@@ -2,7 +2,7 @@ package com.martingallauner.bookclub.adapter.out.persistence.client;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.martingallauner.bookclub.adapter.out.persistence.Book;
+import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
 import com.martingallauner.bookclub.application.port.out.FetchOpenLibraryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ public class OpenLibraryClient implements FetchOpenLibraryPort {
     private final WebClient openLibraryWebClient;
 
     @Override
-    public Book fetchMetadataForBook(String isbn) {
+    public BookEntity fetchMetadataForBook(String isbn) {
         ObjectNode result = openLibraryWebClient.get().uri("/api/books",
                         uriBuilder -> uriBuilder.queryParam("jscmd", "data")
                                 .queryParam("format", "json")
@@ -34,8 +34,8 @@ public class OpenLibraryClient implements FetchOpenLibraryPort {
         return convertToBook(isbn, content);
     }
 
-    private Book convertToBook(String isbn, JsonNode content) {
-        Book book = new Book();
+    private BookEntity convertToBook(String isbn, JsonNode content) {
+        BookEntity book = new BookEntity();
         book.setIsbn(isbn);
 
         if (content.hasNonNull("title")) {

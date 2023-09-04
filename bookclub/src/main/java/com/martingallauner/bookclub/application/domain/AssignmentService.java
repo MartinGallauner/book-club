@@ -1,8 +1,8 @@
 package com.martingallauner.bookclub.application.domain;
 
 import com.martingallauner.bookclub.adapter.in.web.AssignedBooksResponse;
-import com.martingallauner.bookclub.adapter.out.persistence.Book;
-import com.martingallauner.bookclub.adapter.out.persistence.User;
+import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
+import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,13 @@ public class AssignmentService implements AssignBookUseCase {
 
     @Override
     public void assign(Long userId, String isbn) {
-        Book book = bookService.getBookByIsbn(isbn);
+        BookEntity book = bookService.getBookByIsbn(isbn);
         userService.addBook(userId, book);
     }
 
     @Override
     public AssignedBooksResponse getBooksByUserId(Long userId) {
-        User user = userService.getUserById(userId);
+        UserEntity user = userService.getUserById(userId);
 
         return AssignedBooksResponse.builder()
                 .user(user.toResponse())

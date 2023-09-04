@@ -1,6 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.adapter.out.persistence.User;
+import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.port.in.SearchBookUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +21,9 @@ public class SearchController {
 
     @GetMapping("/{isbn}")
     public List<UserResponse> searchBooks(@PathVariable String isbn) {
-        Set<User> users = searchBookUseCase.searchBooks(isbn);
+        Set<UserEntity> users = searchBookUseCase.searchBooks(isbn);
         return users.stream()
-                .map(User::toResponse)
+                .map(UserEntity::toResponse)
                 .collect(Collectors.toList());
     }
 }

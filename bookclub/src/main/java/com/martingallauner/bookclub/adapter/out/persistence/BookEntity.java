@@ -15,7 +15,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class BookEntity {
 
     @Id
     private String isbn;
@@ -34,6 +34,6 @@ public class Book {
 
     @JsonBackReference
     @ManyToMany(mappedBy = "books")
-    private Set<User> users;
+    private Set<UserEntity> users;
 
 }

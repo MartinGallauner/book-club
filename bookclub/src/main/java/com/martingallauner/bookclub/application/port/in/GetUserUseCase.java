@@ -1,8 +1,8 @@
 package com.martingallauner.bookclub.application.port.in;
 
-import com.martingallauner.bookclub.adapter.out.persistence.User;
+import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 
 public interface GetUserUseCase {
 
-    User getUserById(Long id);
+    UserEntity getUserById(Long id);
 }

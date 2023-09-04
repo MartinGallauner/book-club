@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class User {
     @JoinTable(name = "user_books",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "books_id"))
-    private Set<Book> books;
+    private Set<BookEntity> books;
 
     @EqualsAndHashCode.Exclude
     @ManyToMany
@@ -42,14 +42,14 @@ public class User {
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "connection_id")
     )
-    private Set<User> connections = new HashSet<>();
+    private Set<UserEntity> connections = new HashSet<>();
 
-    public void addConnection(User user) {
+    public void addConnection(UserEntity user) {
         this.connections.add(user);
         user.getConnections().add(this);
     }
 
-    public void removeConnection(User person) {
+    public void removeConnection(UserEntity person) {
         this.connections.remove(person);
         person.getConnections().remove(this);
     }
@@ -57,7 +57,7 @@ public class User {
 
     public UserResponse toResponse() {
         Set<Long> friendIds = this.getConnections().stream()
-                .map(User::getId)
+                .map(UserEntity::getId)
                 .collect(Collectors.toSet());
 
         return new UserResponse(this.getId(), this.getName(), this.getCreatedAt().toString(), friendIds);

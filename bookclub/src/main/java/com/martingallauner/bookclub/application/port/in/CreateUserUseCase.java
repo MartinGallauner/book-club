@@ -1,9 +1,9 @@
 package com.martingallauner.bookclub.application.port.in;
 
-import com.martingallauner.bookclub.adapter.out.persistence.User;
+import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 
 public interface CreateUserUseCase {
 
-    User createUser(CreateUserRequest request);
+    UserEntity createUser(CreateUserRequest request);
 
 }

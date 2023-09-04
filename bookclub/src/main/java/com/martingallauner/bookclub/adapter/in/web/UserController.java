@@ -1,6 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.adapter.out.persistence.User;
+import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
 import com.martingallauner.bookclub.application.port.in.CreateUserRequest;
 import com.martingallauner.bookclub.application.port.in.CreateUserUseCase;
@@ -20,13 +20,13 @@ public class UserController {
 
     @GetMapping("/{id}")
     public UserResponse getUserById(@PathVariable Long id) {
-        User user = getUserUseCase.getUserById(id);
+        UserEntity user = getUserUseCase.getUserById(id);
         return user.toResponse();
     }
 
     @PostMapping
     public UserResponse createUser(@RequestBody CreateUserRequest createUserRequest) {
-        User user = createUserUseCase.createUser(createUserRequest);
+        UserEntity user = createUserUseCase.createUser(createUserRequest);
         return new UserResponse(user.getId(), user.getName(), user.getCreatedAt().toString(), null);
     }
 
