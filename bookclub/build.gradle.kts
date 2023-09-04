@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.1.0"
     id("io.spring.dependency-management") version "1.1.0"
+    id("org.sonarqube") version "4.2.1.3168"
     kotlin("jvm") version "1.8.21"
     kotlin("plugin.spring") version "1.8.21"
     kotlin("plugin.jpa") version "1.8.21"
@@ -35,6 +36,14 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "MartinGallauner_book-club")
+        property("sonar.organization", "martingallauner")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 tasks.withType<KotlinCompile> {
