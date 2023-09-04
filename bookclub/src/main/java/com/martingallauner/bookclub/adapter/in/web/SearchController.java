@@ -1,6 +1,7 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
+import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.in.SearchBookUseCase;
 import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import lombok.RequiredArgsConstructor;
@@ -22,9 +23,9 @@ public class SearchController {
 
     @GetMapping("/{isbn}")
     public List<UserResponse> searchBooks(@PathVariable String isbn) {
-        Set<UserEntity> users = searchBookUseCase.searchBooks(isbn);
+        Set<UserModel> users = searchBookUseCase.searchBooks(isbn);
         return users.stream()
-                .map(UserEntity::toResponse)
+                .map(UserModel::toResponse)
                 .collect(Collectors.toList());
     }
 }

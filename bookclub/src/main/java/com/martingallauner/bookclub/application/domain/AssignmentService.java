@@ -3,9 +3,16 @@ package com.martingallauner.bookclub.application.domain;
 import com.martingallauner.bookclub.adapter.in.web.AssignedBooksResponse;
 import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
+import com.martingallauner.bookclub.application.domain.model.BookModel;
+import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
+import com.martingallauner.bookclub.application.port.in.request.AssignmentRequest;
+import com.martingallauner.bookclub.application.port.out.BookRepository;
+import com.martingallauner.bookclub.application.port.out.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -14,19 +21,24 @@ public class AssignmentService implements AssignBookUseCase {
     private final BookService bookService;
     private final UserService userService;
 
+    private final BookRepository bookRepository;
+    private final UserRepository userRepository;
+
     @Override
-    public void assign(Long userId, String isbn) {
-        BookEntity book = bookService.getBookByIsbn(isbn);
-        userService.addBook(userId, book);
+    public void assign(AssignmentRequest request) {
+        BookEntity book = bookRepository.getReferenceById(request.getIsbn());
+        UserEntity user = userRepository.getReferenceById(request.getUserId());
+        user.getBooks().add(book);
+        userRepository.save(user);
     }
 
     @Override
     public AssignedBooksResponse getBooksByUserId(Long userId) {
-        UserEntity user = userService.getUserById(userId);
+        UserModel user = userService.getUserById(userId);
 
         return AssignedBooksResponse.builder()
                 .user(user.toResponse())
-                .books(user.getBooks())
+                .books(user.getBooks().stream().map(BookModel::toResponse).collect(Collectors.toSet()))
                 .build();
     }
 }

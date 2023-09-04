@@ -1,8 +1,9 @@
 package com.martingallauner.bookclub.application.port.in;
 
-import com.martingallauner.bookclub.application.port.in.response.UserResponse;
+
+import com.martingallauner.bookclub.application.domain.model.UserModel;
 
 public interface GetUserUseCase {
 
-    UserResponse getUserById(Long id);
+    UserModel getUserById(Long id);
 }

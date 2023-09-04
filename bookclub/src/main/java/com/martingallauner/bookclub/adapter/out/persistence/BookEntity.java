@@ -1,6 +1,7 @@
 package com.martingallauner.bookclub.adapter.out.persistence;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.martingallauner.bookclub.application.domain.model.BookModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,4 +37,14 @@ public class BookEntity {
     @ManyToMany(mappedBy = "books")
     private Set<UserEntity> users;
 
+    public BookModel toModel() {
+        return BookModel.builder()
+                .isbn(getIsbn())
+                .title(getTitle())
+                .author(getAuthor())
+                .genre(getGenre())
+                .pages(getPages())
+                .description(getDescription())
+                .build();
+    }
 }

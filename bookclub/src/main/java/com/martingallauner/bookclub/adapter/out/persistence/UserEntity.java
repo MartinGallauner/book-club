@@ -1,6 +1,7 @@
 package com.martingallauner.bookclub.adapter.out.persistence;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Builder
 @Table(name = "users")
 @Entity
 @Data
@@ -54,12 +56,13 @@ public class UserEntity {
         person.getConnections().remove(this);
     }
 
-
-    public UserResponse toResponse() {
-        Set<Long> friendIds = this.getConnections().stream()
-                .map(UserEntity::getId)
-                .collect(Collectors.toSet());
-
-        return new UserResponse(this.getId(), this.getName(), this.getCreatedAt().toString(), friendIds);
+    public UserModel toModel() {
+        return UserModel.builder()
+                .id(this.getId())
+                .name(this.getName())
+                .createdAt(this.getCreatedAt())
+                .books(this.getBooks().stream().map(BookEntity::toModel).collect(Collectors.toSet()))
+                .build();
     }
+
 }

@@ -1,6 +1,7 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
+import com.martingallauner.bookclub.application.port.in.response.BookResponse;
 import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import lombok.Builder;
 import lombok.Data;
@@ -12,5 +13,5 @@ import java.util.Set;
 public class AssignedBooksResponse {
 
     private UserResponse user;
-    private Set<BookEntity> books;
+    private Set<BookResponse> books;
 }

@@ -1,5 +1,6 @@
 package com.martingallauner.bookclub.application.domain.model;
 
+import com.martingallauner.bookclub.application.port.in.response.BookResponse;
 import lombok.Builder;
 import lombok.Data;
 
@@ -20,5 +21,9 @@ public class BookModel {
     private String publisher;
 
     private Long pages;
+
+    public BookResponse toResponse() {
+        return new BookResponse(isbn, title, author, genre, description, publisher, pages);
+    }
 
 }
