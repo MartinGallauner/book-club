@@ -4,9 +4,11 @@ plugins {
     id("org.springframework.boot") version "3.1.0"
     id("io.spring.dependency-management") version "1.1.0"
     id("org.sonarqube") version "4.2.1.3168"
+    id("jacoco")
     kotlin("jvm") version "1.8.21"
     kotlin("plugin.spring") version "1.8.21"
     kotlin("plugin.jpa") version "1.8.21"
+
 }
 
 group = "com.martingallauner"
