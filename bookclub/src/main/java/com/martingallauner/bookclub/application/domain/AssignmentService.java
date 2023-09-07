@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class AssignmentService implements AssignBookUseCase {
 
     private final BookService bookService;
-    private final UserService userService;
+    private final GetUserService getUserService;
 
     private final BookRepository bookRepository;
     private final UserRepository userRepository;
@@ -34,7 +34,7 @@ public class AssignmentService implements AssignBookUseCase {
 
     @Override
     public AssignedBooksResponse getBooksByUserId(Long userId) {
-        UserModel user = userService.getUserById(userId);
+        UserModel user = getUserService.getUserById(userId);
 
         return AssignedBooksResponse.builder()
                 .user(user.toResponse())

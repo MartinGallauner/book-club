@@ -18,18 +18,11 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class UserService implements GetUserUseCase, CreateUserUseCase, AddConnectionUseCase {
+public class UserService implements CreateUserUseCase, AddConnectionUseCase {
 
     private final UserRepository userRepository;
 
     private final TimeService timeService;
-
-
-    @Override
-    public UserModel getUserById(Long id) {
-        UserEntity userEntity = userRepository.getReferenceById(id);
-        return userEntity.toModel();
-    }
 
     @Override
     public UserModel createUser(CreateUserRequest request) {

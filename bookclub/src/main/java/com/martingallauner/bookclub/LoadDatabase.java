@@ -25,8 +25,8 @@ public class LoadDatabase {
             bookRepository.save(book1);
             bookRepository.save(book2);
 
-            UserEntity user1 = new UserEntity(1L, "User Eins", "password", LocalDateTime.now(), Collections.singleton(book1), null);
-            UserEntity user2 = new UserEntity(2L, "User Zwei", "geheimnis", LocalDateTime.now(), Collections.singleton(book2), List.of(user1));
+            UserEntity user1 = new UserEntity(1L, "User Eins", "password", LocalDateTime.now(), List.of(book1), null);
+            UserEntity user2 = new UserEntity(2L, "User Zwei", "geheimnis", LocalDateTime.now(), List.of(book2), List.of(user1));
             userRepository.save(user1);
             userRepository.save(user2);
         };
