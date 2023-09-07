@@ -5,8 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.google.common.truth.Truth.assertThat;
-import static com.google.common.truth.Truth.assertWithMessage;
-
 
 
 class BookEntityTest {
@@ -25,12 +23,12 @@ class BookEntityTest {
                 .build();
 
         BookModel model = entity.toModel();
-        assertThat(model.getIsbn()).matches("1111-2222");
-        assertThat(model.getTitle().matches("test title"));
-        assertThat(model.getAuthor().matches("test author"));
-        assertThat(model.getGenre().matches("testing"));
-        assertThat(model.getDescription().matches("a stupid book about testing."));
-        assertThat(model.getPublisher().matches("noone"));
-        assertThat(model.getPages().equals(666L));
+        assertThat(model.getIsbn()).isEqualTo("1111-2222");
+        assertThat(model.getTitle()).isEqualTo("test title");
+        assertThat(model.getAuthor()).isEqualTo("test author");
+        assertThat(model.getGenre()).isEqualTo("testing");
+        assertThat(model.getDescription()).isEqualTo("a stupid book about testing.");
+        assertThat(model.getPublisher()).isEqualTo("noone");
+        assertThat(model.getPages()).isEqualTo(666L);
     }
 }

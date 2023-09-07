@@ -60,10 +60,11 @@ public class UserEntity {
 
     public UserModel toModel() {
         return UserModel.builder()
-                .id(this.getId())
-                .name(this.getName())
-                .createdAt(this.getCreatedAt())
-                .books(this.getBooks().stream().map(BookEntity::toModel).toList())
+                .id(getId())
+                .name(getName())
+                .password(getPassword())
+                .createdAt(getCreatedAt())
+               // .books(this.getBooks().stream().map(BookEntity::toModel).toList())
                 .build();
     }
 }
