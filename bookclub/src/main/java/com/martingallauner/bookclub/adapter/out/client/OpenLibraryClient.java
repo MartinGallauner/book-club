@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.adapter.out.persistence.client;
+package com.martingallauner.bookclub.adapter.out.client;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
