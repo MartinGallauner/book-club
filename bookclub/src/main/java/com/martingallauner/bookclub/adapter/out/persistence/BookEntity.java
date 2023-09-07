@@ -43,6 +43,7 @@ public class BookEntity {
                 .genre(getGenre())
                 .pages(getPages())
                 .description(getDescription())
+                .publisher(getPublisher())
                 .build();
     }
 }
