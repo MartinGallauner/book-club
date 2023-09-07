@@ -7,7 +7,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -44,7 +46,7 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "connection_id")
     )
-    private Set<UserEntity> connections = new HashSet<>();
+    private List<UserEntity> connections = new ArrayList<>();
 
     public void addConnection(UserEntity user) {
         this.connections.add(user);
@@ -61,8 +63,7 @@ public class UserEntity {
                 .id(this.getId())
                 .name(this.getName())
                 .createdAt(this.getCreatedAt())
-                .books(this.getBooks().stream().map(BookEntity::toModel).collect(Collectors.toSet()))
+                .books(this.getBooks().stream().map(BookEntity::toModel).toList())
                 .build();
     }
-
 }

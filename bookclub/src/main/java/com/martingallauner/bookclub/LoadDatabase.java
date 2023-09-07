@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.List;
 
 @Component
 public class LoadDatabase {
@@ -25,7 +26,7 @@ public class LoadDatabase {
             bookRepository.save(book2);
 
             UserEntity user1 = new UserEntity(1L, "User Eins", "password", LocalDateTime.now(), Collections.singleton(book1), null);
-            UserEntity user2 = new UserEntity(2L, "User Zwei", "geheimnis", LocalDateTime.now(), Collections.singleton(book2), Collections.singleton(user1));
+            UserEntity user2 = new UserEntity(2L, "User Zwei", "geheimnis", LocalDateTime.now(), Collections.singleton(book2), List.of(user1));
             userRepository.save(user1);
             userRepository.save(user2);
         };

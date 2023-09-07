@@ -28,13 +28,7 @@ public class UserService implements GetUserUseCase, CreateUserUseCase, AddConnec
     @Override
     public UserModel getUserById(Long id) {
         UserEntity userEntity = userRepository.getReferenceById(id);
-        return UserModel.builder()
-                .id(userEntity.getId())
-                .name(userEntity.getName())
-                .books(userEntity.getBooks().stream().map(BookEntity::toModel).collect(Collectors.toSet()))
-                .connections(userEntity.getConnections().stream().map(UserEntity::toModel).collect(Collectors.toSet()))
-                .createdAt(userEntity.getCreatedAt())
-                .build();
+        return userEntity.toModel();
     }
 
     @Override

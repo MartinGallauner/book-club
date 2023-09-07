@@ -3,10 +3,7 @@ package com.martingallauner.bookclub.adapter.out.persistence;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.martingallauner.bookclub.application.domain.model.BookModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -16,6 +13,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class BookEntity {
 
     @Id
