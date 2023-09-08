@@ -7,6 +7,7 @@ import com.martingallauner.bookclub.application.port.in.GetUserUseCase;
 import com.martingallauner.bookclub.application.port.in.request.ConnectUserRequest;
 import com.martingallauner.bookclub.application.port.in.request.CreateUserRequest;
 import com.martingallauner.bookclub.application.port.in.response.UserResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponse createUser(@RequestBody CreateUserRequest createUserRequest) {
+    public UserResponse createUser(@RequestBody @Valid CreateUserRequest createUserRequest) {
         UserModel user = createUserUseCase.createUser(createUserRequest);
         return user.toResponse();
     }
