@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/books")
-public class BookController implements FindBookUseCase {
+public class BookController {
 
     private final FindBookUseCase findBookUseCase;
 
-    @Override
     @GetMapping("/{isbn}")
     public BookResponse getBook(@PathVariable String isbn) {
         return findBookUseCase.getBook(isbn);
