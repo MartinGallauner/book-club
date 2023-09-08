@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Service
 public class AssignmentService implements AssignBookUseCase {
 
-    private final BookService bookService;
+    private final GetBookService getBookService;
     private final GetUserService getUserService;
 
     private final BookRepository bookRepository;

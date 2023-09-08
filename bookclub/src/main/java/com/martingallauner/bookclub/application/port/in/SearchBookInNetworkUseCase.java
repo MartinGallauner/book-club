@@ -6,9 +6,9 @@ import com.martingallauner.bookclub.application.domain.model.UserModel;
 import java.util.Set;
 
 /**
- * Searches for users who have the specified book.
+ * Searches for connected user who have the specified book.
  */
-public interface SearchBookUseCase {
+public interface SearchBookInNetworkUseCase {
 
     Set<UserModel> searchBooks(String isbn);
 }

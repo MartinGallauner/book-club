@@ -1,8 +1,7 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
 import com.martingallauner.bookclub.application.domain.model.UserModel;
-import com.martingallauner.bookclub.application.port.in.SearchBookUseCase;
+import com.martingallauner.bookclub.application.port.in.SearchBookInNetworkUseCase;
 import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/search")
 public class SearchController {
 
-    private final SearchBookUseCase searchBookUseCase;
+    private final SearchBookInNetworkUseCase searchBookUseCase;
+
 
     @GetMapping("/{isbn}")
     public List<UserResponse> searchBooks(@PathVariable String isbn) {

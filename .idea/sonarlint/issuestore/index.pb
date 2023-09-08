@@ -1,5 +1,5 @@
 
-‰
-Ybookclub/src/main/java/com/martingallauner/bookclub/assignments/AssignmentController.java,9/b/9b54238b9d0f44a304aa0046c4d34c700445a6f1
-Š
-Zbookclub/src/main/java/com/martingallauner/bookclub/assignments/AssignedBooksResponse.java,7/0/701e6acbb58fc1ac00a4cd506faeff9690aec838
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+K
+.github/workflows/build.yml,f/e/fe77d5d1439f26e353a42bbd38dece2467ff6558
