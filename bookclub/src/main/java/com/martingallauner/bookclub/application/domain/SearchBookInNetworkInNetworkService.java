@@ -17,8 +17,8 @@ public class SearchBookInNetworkInNetworkService implements SearchBookInNetworkU
 
     @Override
     public Set<UserModel> searchBooks(String isbn) {
-        BookResponse book = getBookService.getBook(isbn);
+        //BookResponse book = getBookService.getBook(isbn);
         //todo implement
-        return new HashSet<UserModel>();
+        return new HashSet<>();
     }
 }

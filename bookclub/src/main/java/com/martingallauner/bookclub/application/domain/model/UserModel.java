@@ -31,10 +31,13 @@ public class UserModel {
 
 
     public UserResponse toResponse() {
+        /*
         Set<Long> friendIds = this.getConnections().stream()
                 .map(UserModel::getId)
                 .collect(Collectors.toSet());
 
+         */
+        //todo implement
         return new UserResponse(this.getId(), this.getName(), this.getCreatedAt().toString());
     }
 }

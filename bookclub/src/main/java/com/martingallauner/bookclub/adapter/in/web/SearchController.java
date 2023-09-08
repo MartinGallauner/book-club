@@ -26,6 +26,6 @@ public class SearchController {
         Set<UserModel> users = searchBookUseCase.searchBooks(isbn);
         return users.stream()
                 .map(UserModel::toResponse)
-                .collect(Collectors.toList());
+                .toList();
     }
 }

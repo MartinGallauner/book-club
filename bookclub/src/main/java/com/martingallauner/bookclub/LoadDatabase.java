@@ -1,15 +1,14 @@
 package com.martingallauner.bookclub;
 
 import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
-import com.martingallauner.bookclub.application.port.out.BookRepository;
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
+import com.martingallauner.bookclub.application.port.out.BookRepository;
 import com.martingallauner.bookclub.application.port.out.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 
 @Component
