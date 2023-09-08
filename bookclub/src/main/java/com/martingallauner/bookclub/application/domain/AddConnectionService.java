@@ -15,10 +15,10 @@ public class AddConnectionService implements AddConnectionUseCase {
 
     @Override
     public void addConnection(ConnectUserRequest request) {
-        UserEntity user1 = userRepository.findById(request.user1Id())
-                .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user1Id()));
-        UserEntity user2 = userRepository.findById(request.user2Id())
-                .orElseThrow(() -> new RuntimeException("Person not found with id " + request.user2Id()));
+        UserEntity user1 = userRepository.findById(request.primaryUserId())
+                .orElseThrow(() -> new RuntimeException("Person not found with id " + request.primaryUserId()));
+        UserEntity user2 = userRepository.findById(request.secondaryUserId())
+                .orElseThrow(() -> new RuntimeException("Person not found with id " + request.secondaryUserId()));
 
         user1.addConnection(user2);
 

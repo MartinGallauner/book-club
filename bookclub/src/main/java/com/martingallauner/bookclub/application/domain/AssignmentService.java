@@ -26,8 +26,8 @@ public class AssignmentService implements AssignBookUseCase {
 
     @Override
     public void assign(AssignmentRequest request) {
-        BookEntity book = bookRepository.getReferenceById(request.getIsbn());
-        UserEntity user = userRepository.getReferenceById(request.getUserId());
+        BookEntity book = bookRepository.getReferenceById(request.isbn());
+        UserEntity user = userRepository.getReferenceById(request.userId());
         user.getBooks().add(book);
         userRepository.save(user);
     }

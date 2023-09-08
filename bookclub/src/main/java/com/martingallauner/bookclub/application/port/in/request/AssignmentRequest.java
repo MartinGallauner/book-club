@@ -1,10 +1,15 @@
 package com.martingallauner.bookclub.application.port.in.request;
 
-import lombok.Data;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Data
-public class AssignmentRequest {
+import static com.martingallauner.bookclub.common.Validation.validate;
 
-    private Long userId;
-    private String isbn;
+public record AssignmentRequest(@NotNull Long userId, @NotNull @NotBlank String isbn) {
+
+    public AssignmentRequest(Long userId, String isbn) {
+        this.userId = userId;
+        this.isbn = isbn;
+        validate(this);
+    }
 }

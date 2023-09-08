@@ -12,6 +12,7 @@ class CreateUserRequestTest {
     @Test
     void createInvalidUser() {
         assertThrows(ConstraintViolationException.class, () -> new CreateUserRequest(null, null));
+        assertThrows(ConstraintViolationException.class, () -> new CreateUserRequest(null, null));
         assertThrows(ConstraintViolationException.class, () -> new CreateUserRequest("", ""));
     }
 }
