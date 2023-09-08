@@ -1,8 +1,6 @@
 package com.martingallauner.bookclub.application.domain;
 
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
-import com.martingallauner.bookclub.application.TimeService;
-import com.martingallauner.bookclub.application.domain.model.BookModel;
 import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
 import com.martingallauner.bookclub.application.port.in.request.ConnectUserRequest;
 import com.martingallauner.bookclub.application.port.out.UserRepository;
@@ -11,15 +9,9 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
-public class UserService implements AddConnectionUseCase {
+public class AddConnectionService implements AddConnectionUseCase {
 
     private final UserRepository userRepository;
-
-    public void addBook(Long userId, BookModel book) {
-        UserEntity user = userRepository.getReferenceById(userId);
-        //todo implement adding of books
-        userRepository.save(user);
-    }
 
     @Override
     public void addConnection(ConnectUserRequest request) {
