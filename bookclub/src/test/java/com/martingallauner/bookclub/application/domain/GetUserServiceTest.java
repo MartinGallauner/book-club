@@ -2,7 +2,6 @@ package com.martingallauner.bookclub.application.domain;
 
 import com.martingallauner.bookclub.adapter.out.persistence.BookEntity;
 import com.martingallauner.bookclub.adapter.out.persistence.UserEntity;
-import com.martingallauner.bookclub.application.TimeService;
 import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.out.UserRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -14,8 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import static com.google.common.truth.Truth.assertThat;
 
+import static com.google.common.truth.Truth.assertThat;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

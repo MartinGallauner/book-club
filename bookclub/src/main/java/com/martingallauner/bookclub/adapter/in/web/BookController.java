@@ -17,6 +17,6 @@ public class BookController {
 
     @GetMapping("/{isbn}")
     public BookResponse getBook(@PathVariable String isbn) {
-        return findBookUseCase.getBook(isbn);
+        return findBookUseCase.getBook(isbn).toResponse();
     }
 }
