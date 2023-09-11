@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.adapter.in.web;
+package com.martingallauner.bookclub.adapter.in.web.user;
 
 import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.in.AddConnectionUseCase;
