@@ -77,14 +77,13 @@ class GetBookServiceTest {
         assertThat(savedBook.getTitle()).isEqualTo("Get Your Hands Dirty on Clean Architecture");
     }
 
-
+/* todo reenable test + implement feature
     @DisplayName("Test if BookNotFoundException is thrown when book is not returned from OpenLibraryClient.")
     @Test
     void bookNotFoundInOpenLibrary() throws Exception {
         when(bookRepository.findById("978-1839211966")).thenReturn(Optional.empty());
 
-
-
-
     }
+
+ */
 }
