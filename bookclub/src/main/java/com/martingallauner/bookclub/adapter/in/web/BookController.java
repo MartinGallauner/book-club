@@ -2,6 +2,7 @@ package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.application.port.in.FindBookUseCase;
 import com.martingallauner.bookclub.application.port.in.response.BookResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ public class BookController {
 
     private final FindBookUseCase findBookUseCase;
 
+    @Operation(summary = "Get book by isbn")
     @GetMapping("/{isbn}")
     public BookResponse getBook(@PathVariable String isbn) {
         return findBookUseCase.getBook(isbn).toResponse();
