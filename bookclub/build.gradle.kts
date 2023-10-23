@@ -56,7 +56,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.boot", "spring-boot-starter-webflux", "3.0.6")
     implementation("org.springframework.boot:spring-boot-starter-validation:3.1.3")
-
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")

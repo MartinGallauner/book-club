@@ -5,8 +5,13 @@ Connect your physical bookshelf with your friends!
 
 ## How to start
 
-### 1. startup database
-`docker run --name my-postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgres -p 5432:5432 -d postgres
+### 1. startup database using docker compose
+`docker compose up
 `
 
-```
+
+## API documentation
+
+The Swagger UI is available at [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html).
+
+The API documents in json format can be found at [here](http://localhost:8080/v2/api-docs).
