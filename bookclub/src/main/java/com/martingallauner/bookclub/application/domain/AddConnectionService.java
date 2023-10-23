@@ -20,9 +20,11 @@ public class AddConnectionService implements AddConnectionUseCase {
         UserEntity user2 = userRepository.findById(request.secondaryUserId())
                 .orElseThrow(() -> new RuntimeException("Person not found with id " + request.secondaryUserId()));
 
-        user1.addConnection(user2);
+        if (user1.getConnections().contains(user2)) {
+            throw new IllegalArgumentException("Users are already connected");
+        }
 
+        user1.addConnection(user2);
         userRepository.save(user1);
-        userRepository.save(user2);
     }
 }
