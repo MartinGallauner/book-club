@@ -49,11 +49,6 @@ public class UserEntity {
         user.getConnections().add(this);
     }
 
-    public void removeConnection(UserEntity person) {
-        this.connections.remove(person);
-        person.getConnections().remove(this);
-    }
-
     public UserModel toModel() {
         return UserModel.builder()
                 .id(getId())
