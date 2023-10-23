@@ -1,7 +1,7 @@
+[![Build and analyze with SonarCloud](https://github.com/MartinGallauner/book-club/actions/workflows/build.yml/badge.svg)](https://github.com/MartinGallauner/book-club/actions/workflows/build.yml)
 # book-club
 Connect your physical bookshelf with your friends!
 
-[![Build and analyze with SonarCloud](https://github.com/MartinGallauner/book-club/actions/workflows/build.yml/badge.svg)](https://github.com/MartinGallauner/book-club/actions/workflows/build.yml)
 
 
 
