@@ -17,12 +17,12 @@ public class AssignBookService implements AssignBookUseCase {
     private final UserRepository userRepository;
 
     @Override
-    public void assign(AssignmentRequest request) {
+    public boolean assign(AssignmentRequest request) {
         BookEntity book = bookRepository.getReferenceById(request.isbn());
         UserEntity user = userRepository.getReferenceById(request.userId());
         user.getBooks().add(book);
         userRepository.save(user);
+
+        return true;
     }
-
-
 }
