@@ -10,7 +10,7 @@ import static jakarta.validation.Validation.buildDefaultValidatorFactory;
 
 public class Validation {
 
-    private final static Validator validator =
+    private static final Validator validator =
             buildDefaultValidatorFactory().getValidator();
 
     /**

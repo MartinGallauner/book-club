@@ -2,7 +2,6 @@ package com.martingallauner.bookclub.application.domain;
 
 import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.in.SearchBookInNetworkUseCase;
-import com.martingallauner.bookclub.application.port.in.response.BookResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,7 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class SearchBookInNetworkInNetworkService implements SearchBookInNetworkUseCase {
+public class SearchBookInNetworkService implements SearchBookInNetworkUseCase {
 
     private final GetBookService getBookService;
 

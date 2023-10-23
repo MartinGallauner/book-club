@@ -1,7 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web.assigned;
 
 import com.martingallauner.bookclub.application.port.in.response.BookResponse;
-import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import lombok.Builder;
 import lombok.Data;
 
