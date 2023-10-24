@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -24,9 +25,11 @@ public class UserModel {
 
     private LocalDateTime createdAt;
 
-    private List<BookModel> books;
+    @Builder.Default
+    private List<BookModel> books = new ArrayList<>();
 
-    private List<UserModel> connections;
+    @Builder.Default
+    private List<UserModel> connections  = new ArrayList<>();
 
 
 

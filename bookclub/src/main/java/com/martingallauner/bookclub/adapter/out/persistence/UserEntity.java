@@ -6,8 +6,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+
 
 @Builder
 @Table(name = "users")
@@ -42,7 +44,7 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "connection_id")
     )
-    private List<UserEntity> connections = new ArrayList<>();
+    private List<UserEntity> connections;
 
     public void addConnection(UserEntity user) {
         this.connections.add(user);
@@ -55,7 +57,9 @@ public class UserEntity {
                 .name(getName())
                 .password(getPassword())
                 .createdAt(getCreatedAt())
-               // .books(this.getBooks().stream().map(BookEntity::toModel).toList())
+                .books(Optional.ofNullable(getBooks())
+                        .map(books -> books.stream().map(BookEntity::toModel).toList())
+                        .orElse(Collections.emptyList()))
                 .build();
     }
 }

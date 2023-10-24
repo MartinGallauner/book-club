@@ -1,4 +1,4 @@
-package com.martingallauner.bookclub.adapter.in.web.assigned;
+package com.martingallauner.bookclub.adapter.in.web.assignment;
 
 import com.martingallauner.bookclub.application.domain.model.BookModel;
 import com.martingallauner.bookclub.application.port.in.AssignBookUseCase;
@@ -21,7 +21,7 @@ public class AssignmentController {
 
     @Operation(summary = "Assign a book to a user")
     @PostMapping("/assign")
-    public void assign(@RequestBody AssignmentRequest assignment) {
+    public void assignBookToUser(@RequestBody AssignmentRequest assignment) {
         assignBookUseCase.assign(assignment);
     }
 
@@ -29,6 +29,6 @@ public class AssignmentController {
     @GetMapping("/user/{userId}")
     public AssignedBooksResponse getBooksByUserId(@PathVariable Long userId) {
         List<BookModel> assignedBooks = getAssignedBooksUseCase.getAssignedBooks(userId);
-        return new AssignedBooksResponse(userId, assignedBooks.stream().map(b -> b.toResponse()).toList());
+        return new AssignedBooksResponse(userId, assignedBooks.stream().map(BookModel::toResponse).toList());
     }
 }
