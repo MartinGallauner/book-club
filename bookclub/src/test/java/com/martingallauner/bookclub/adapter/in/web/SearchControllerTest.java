@@ -1,7 +1,7 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.application.domain.model.UserModel;
-import com.martingallauner.bookclub.application.port.in.SearchBookInNetworkUseCase;
+import com.martingallauner.bookclub.application.port.in.FindBookOwnerUseCase;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -19,14 +18,13 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @WebMvcTest(SearchController.class)
 class SearchControllerTest {
 
     @MockBean
-    private SearchBookInNetworkUseCase searchBookUseCase;
+    private FindBookOwnerUseCase findBookOwnerUseCase;
 
     @Autowired
     private MockMvc mockMvc;
@@ -34,7 +32,7 @@ class SearchControllerTest {
     @Test
     void searchBooks() throws Exception {
 
-        when(searchBookUseCase.searchBooks("1234567890")).thenReturn(Set.of(UserModel.builder().id(5L).name("Book Owner").createdAt(LocalDateTime.parse("2023-10-24T12:05:00")).build()));
+        when(findBookOwnerUseCase.findBookOwner("1234567890")).thenReturn(Set.of(UserModel.builder().id(5L).name("Book Owner").createdAt(LocalDateTime.parse("2023-10-24T12:05:00")).build()));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/search/{isbn}", "1234567890")
                         .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON))
