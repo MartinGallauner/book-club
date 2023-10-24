@@ -4,6 +4,8 @@ import com.martingallauner.bookclub.application.domain.model.BookModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Set;
+
 import static com.google.common.truth.Truth.assertThat;
 
 
@@ -20,6 +22,7 @@ class BookEntityTest {
                 .description("a stupid book about testing.")
                 .publisher("noone")
                 .pages(666L)
+                .owners(Set.of(UserEntity.builder().build()))
                 .build();
 
         BookModel model = entity.toModel();
@@ -29,6 +32,5 @@ class BookEntityTest {
         assertThat(model.getGenre()).isEqualTo("testing");
         assertThat(model.getDescription()).isEqualTo("a stupid book about testing.");
         assertThat(model.getPublisher()).isEqualTo("noone");
-        assertThat(model.getPages()).isEqualTo(666L);
-    }
+        assertThat(model.getPages()).isEqualTo(666L);}
 }

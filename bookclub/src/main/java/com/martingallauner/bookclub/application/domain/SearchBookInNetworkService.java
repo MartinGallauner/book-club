@@ -1,5 +1,6 @@
 package com.martingallauner.bookclub.application.domain;
 
+import com.martingallauner.bookclub.application.domain.model.BookModel;
 import com.martingallauner.bookclub.application.domain.model.UserModel;
 import com.martingallauner.bookclub.application.port.in.SearchBookInNetworkUseCase;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +17,7 @@ public class SearchBookInNetworkService implements SearchBookInNetworkUseCase {
 
     @Override
     public Set<UserModel> searchBooks(String isbn) {
-        //BookResponse book = getBookService.getBook(isbn);
-        //todo implement
+        BookModel book = getBookService.getBook(isbn);
         return new HashSet<>();
     }
 }

@@ -1,6 +1,6 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
-import com.martingallauner.bookclub.application.port.in.FindBookUseCase;
+import com.martingallauner.bookclub.application.port.in.GetBookUseCase;
 import com.martingallauner.bookclub.application.port.in.response.BookResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/books")
 public class BookController {
 
-    private final FindBookUseCase findBookUseCase;
+    private final GetBookUseCase findBookUseCase;
 
     @Operation(summary = "Get book by isbn")
     @GetMapping("/{isbn}")

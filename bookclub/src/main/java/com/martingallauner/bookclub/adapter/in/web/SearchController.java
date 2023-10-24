@@ -1,7 +1,7 @@
 package com.martingallauner.bookclub.adapter.in.web;
 
 import com.martingallauner.bookclub.application.domain.model.UserModel;
-import com.martingallauner.bookclub.application.port.in.SearchBookInNetworkUseCase;
+import com.martingallauner.bookclub.application.port.in.FindBookOwnerUseCase;
 import com.martingallauner.bookclub.application.port.in.response.UserResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -18,12 +18,12 @@ import java.util.Set;
 @RequestMapping("/api/search")
 public class SearchController {
 
-    private final SearchBookInNetworkUseCase searchBookUseCase;
+    private final FindBookOwnerUseCase findBookOwnerUseCase;
 
     @Operation(summary = "Search for a book in the network")
     @GetMapping("/{isbn}")
     public List<UserResponse> searchBooks(@PathVariable String isbn) {
-        Set<UserModel> users = searchBookUseCase.searchBooks(isbn);
+        Set<UserModel> users = findBookOwnerUseCase.findBookOwner(isbn);
         return users.stream()
                 .map(UserModel::toResponse)
                 .toList();

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Table(name = "books")
 @Entity
@@ -33,7 +34,7 @@ public class BookEntity {
 
     @JsonBackReference
     @ManyToMany(mappedBy = "books")
-    private Set<UserEntity> users;
+    private Set<UserEntity> owners;
 
     public BookModel toModel() {
         return BookModel.builder()
